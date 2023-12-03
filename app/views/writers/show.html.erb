@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Writer #<%= @the_writer.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/writers">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_writer/<%= @the_writer.id %>">
+          Delete writer
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Word count goal
+      </dt>
+      <dd>
+        <%= @the_writer.word_count_goal %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_writer.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_writer.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit writer
+    </h2>
+
+    <form action="/modify_writer/<%= @the_writer.id %>"  method="post" >
+      <div>
+        <label for="word_count_goal_box">
+          Word count goal
+        </label>
+
+        <input type="text" id="word_count_goal_box" name="query_word_count_goal" value="<%= @the_writer.word_count_goal %>">
+      </div>
+
+      <button>
+        Update writer
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
